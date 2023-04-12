@@ -1,19 +1,19 @@
-# ansible-yay
+# ansible-paru
 
 An Ansible module for installing [AUR](https://aur.archlinux.org/) packages via
-the [yay][yay] AUR helper.
+the [paru][paru] AUR helper.
 
-This assumes your target node already has yay and its dependecies installed.
+This assumes your target already has paru and its dependecies installed.
 
 ## Dependencies (Managed Node)
 
 * [Arch Linux](https://www.archlinux.org/) (Obviously)
-* [yay][yay]
+* [paru][paru]
 
 ## Installation
 
 1. Clone this repo
-2. Copy or link the `yay` file into your global Ansible library (usually
+2. Copy or link the `paru` file into your global Ansible library (usually
    `/usr/share/ansible`) or into the `./library` folder alongside your
    top-level playbook
 
@@ -37,20 +37,20 @@ respectively).
 
 ```yaml
 # Install package foo
-- yay: name=foo state=present
+- paru: name=foo state=present
 
 # Ensure package fuzz is installed and up-to-date
-- yay: name=fuzz state=latest
+- paru: name=fuzz state=latest
 
 # Remove packages foo and bar
-- yay: name=foo,bar state=absent
+- paru: name=foo,bar state=absent
 
 # Recursively remove package baz
-- yay: name=baz state=absent recurse=yes
+- paru: name=baz state=absent recurse=yes
 
 # Effectively run yay -Syu
-- yay: update_cache=yes upgrade=yes
+- paru: update_cache=yes upgrade=yes
 ```
 
-[yay]: https://github.com/Jguer/yay
+[paru]: https://github.com/Morganamilo/paru
 [pacman-mod]: http://docs.ansible.com/pacman_module.html
